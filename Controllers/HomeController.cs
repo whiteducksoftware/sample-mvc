@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.Versioning;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -20,6 +22,16 @@ namespace sample_mvc.Controllers
 
         public IActionResult Index()
         {
+            var framework = Assembly
+                .GetEntryAssembly()?
+                .GetCustomAttribute<TargetFrameworkAttribute>()?
+                .FrameworkName;
+
+            ViewBag.Platform = new
+            {
+                OsVersion = System.Runtime.InteropServices.RuntimeInformation.OSDescription,
+                DotnetCoreVersion = framework
+            };
             return View();
         }
 

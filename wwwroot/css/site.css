@@ -28,6 +28,7 @@ a {
 -------------------------------------------------- */
 html {
   font-size: 14px;
+  
 }
 @media (min-width: 768px) {
   html {
@@ -58,9 +59,19 @@ html {
   min-height: 100%;
 }
 
+.text-center {
+  padding-top: 10%;
+}
+
+pre {
+  margin-top: 50px;
+}
+
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background-color: #191919;
+  color: #e5e5e5
 }
 .footer {
   position: absolute;
