@@ -1,6 +1,6 @@
 on: [push]
 
-name: DeployToAzure
+name: Deploy to Azure
 
 jobs:
 
