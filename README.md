@@ -8,4 +8,4 @@ You can test the latest version of this application [online](https://demo.mbrand
 
 Just clone this repository and start the application using ```dotnet run```
 
-![Status](https://github.com/whiteducksoftware/sample-mvc/workflows/.github/workflows/workflow.yml/badge.svg)
+![](https://github.com/whiteducksoftware/sample-mvc/workflows/.github/workflows/workflow.yml/badge.svg)
