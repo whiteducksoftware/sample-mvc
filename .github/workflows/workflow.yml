@@ -20,8 +20,6 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-
-    # dotnet build and publish
     - name: Build with dotnet
       run: dotnet build --configuration Release
     - name: dotnet publish
@@ -31,10 +29,5 @@ jobs:
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v1
       with: 
-        app-name: mydotnetcoreapp # Replace with your app name
+        app-name: github-action-demo
         package: './myapp' 
-
-
-
-    - run: |
-        az webapp list --query "[?state=='Running']"
