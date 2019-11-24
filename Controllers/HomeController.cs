@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.Versioning;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using sample_mvc.Models;
 
 namespace sample_mvc.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly Settings _settings;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IOptions<Settings> settings)
         {
-            _logger = logger;
+            _settings = settings.Value;
         }
 
         public IActionResult Index()
@@ -32,6 +28,9 @@ namespace sample_mvc.Controllers
                 OsVersion = System.Runtime.InteropServices.RuntimeInformation.OSDescription,
                 DotnetCoreVersion = framework
             };
+
+            ViewBag.Title = _settings.Title;
+
             return View();
         }
 
