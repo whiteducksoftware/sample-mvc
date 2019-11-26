@@ -11,3 +11,6 @@ Just clone this repository and start the application using ```dotnet run```
 Or pull the containerized application using ```docker pull nmeisenzahl/sample-mvc```
 
 ![Status](https://github.com/whiteducksoftware/sample-mvc/workflows/Deploy%20to%20Azure/badge.svg)
+
+[![Actions Status](https://github.com/whiteducksoftware/sample-mvc/workflows/Publish%20to%20Registry/badge.svg)](https://github.com/whiteducksoftware/sample-mvc/actions)
+
