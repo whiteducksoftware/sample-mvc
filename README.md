@@ -7,9 +7,7 @@ You can test the latest version of this application [online](https://demo.mbrand
 ## Usage
 
 Just clone this repository and start the application using ```dotnet run```
-Or pull the containerized application using: 
-```bash
-docker pull nmeisenzahl/sample-mvc
-```
+
+Or pull the containerized application using ```docker pull nmeisenzahl/sample-mvc```
 
 ![Status](https://github.com/whiteducksoftware/sample-mvc/workflows/Deploy%20to%20Azure/badge.svg)
