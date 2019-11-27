@@ -2,7 +2,7 @@
 
 This is a simple ASP .NET Core 3.0 MVC Demo application that you can use to demonstrate e. g. containerization or deployments.
 
-You can test the latest version of this application [online](https://demo.mbrandl.com/).
+You can test the latest version of this application [online](https://fred.whiteduck.de).
 
 ## Usage
 
