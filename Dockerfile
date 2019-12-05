@@ -4,9 +4,9 @@ RUN adduser --disabled-password --home /app --gecos '' app \
   && chown -R app /app
 USER app
 WORKDIR /app
-COPY *.csproj ./
+COPY /src/*.csproj ./
 RUN dotnet restore
-COPY . ./
+COPY /src ./
 RUN dotnet publish -c Release -o output
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0
