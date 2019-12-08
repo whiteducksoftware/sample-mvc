@@ -12,5 +12,4 @@ jobs:
       with:
         azure-devops-project-url: 'https://dev.azure.com/whiteduck/DevOps'
         azure-pipeline-name: 'mbrtest'
-        azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}’
-
+        azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
