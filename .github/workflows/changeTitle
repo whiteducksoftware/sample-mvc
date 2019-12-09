@@ -1,0 +1,22 @@
+name: Change Title on issue
+
+on:
+  issues:
+    types: [opened, edited, milestoned]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Change the title
+      run: ./assets/Set-Title.ps1 -title "${{ github.event.issue.title }}"
+      shell: pwsh
