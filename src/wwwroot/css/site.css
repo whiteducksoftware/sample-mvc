@@ -70,7 +70,7 @@ pre {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  background-color: #191919;
+  background-color: orange;
   color: #e5e5e5
 }
 .footer {
