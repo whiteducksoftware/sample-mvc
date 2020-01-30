@@ -2,12 +2,12 @@ name: Change Title on issue
 
 on:
   issues:
-    types: [opened, edited, milestoned]
+    types: [opened]
 
 jobs:
   build:
 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
