@@ -2,6 +2,9 @@ on:
   push:
     branches:
       - update-arm-template
+    paths:
+      - ".github/workflows/infrastructure.yml"
+      - ".azure/infrastructure/azuredeploy.json"
 
 name: Infrastructure
 
@@ -14,5 +17,11 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Checkout master
-        uses: actions/checkout@master
+      - name: Deploy ARM Template
+        uses: whiteducksoftware/azure-arm-action-js@v1
+        with:
+          resourceGroupName: github-action-arm-rg
+          templateLocation: .azure/infrastructure/azuredeploy.json
+          parameters: |
+            'appServicePlanName=mbr-aboutazure-post-test-asp2' 
+            'webAppName=mbr-aboutazure-post-test2'
