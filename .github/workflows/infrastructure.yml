@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - master
+      - update-arm-template
 
 name: Infrastructure
 
