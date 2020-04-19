@@ -1,0 +1,18 @@
+on:
+  push:
+    branches:
+      - master
+
+name: Infrastructure
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Checkout master
+        uses: actions/checkout@master
