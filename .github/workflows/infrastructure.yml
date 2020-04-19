@@ -17,6 +17,9 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: Checkout Sourcecode
+        uses: actions/checkout@master
+
       - name: Deploy ARM Template
         uses: whiteducksoftware/azure-arm-action-js@v1
         with:
