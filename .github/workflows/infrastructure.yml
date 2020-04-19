@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - update-arm-template
+      - master
     paths:
       - ".github/workflows/infrastructure.yml"
       - ".azure/infrastructure/azuredeploy.json"
