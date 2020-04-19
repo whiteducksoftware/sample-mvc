@@ -20,6 +20,12 @@ jobs:
       - name: Checkout Sourcecode
         uses: actions/checkout@master
 
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az account show
+
       - name: Deploy ARM Template
         uses: whiteducksoftware/azure-arm-action-js@v1
         with:
