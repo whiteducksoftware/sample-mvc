@@ -26,5 +26,5 @@ jobs:
           resourceGroupName: github-action-arm-rg
           templateLocation: .azure/infrastructure/azuredeploy.json
           parameters: |
-            'appServicePlanName=mbr-aboutazure-post-test-asp2' 
-            'webAppName=mbr-aboutazure-post-test2'
+            appServicePlanName=mbr-aboutazure-post-test-asp2 
+            webAppName=mbr-aboutazure-post-test2
