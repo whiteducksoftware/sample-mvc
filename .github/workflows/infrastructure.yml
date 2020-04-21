@@ -1,0 +1,30 @@
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/infrastructure.yml"
+      - ".azure/infrastructure/azuredeploy.json"
+
+name: Infrastructure
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Checkout Sourcecode
+        uses: actions/checkout@master
+
+      - name: Deploy ARM Template
+        uses: whiteducksoftware/azure-arm-action-js@v1
+        with:
+          resourceGroupName: github-action-rg
+          templateLocation: .azure/infrastructure/azuredeploy.json
+          parameters: |
+            appServicePlanName=github-action-asp 
+            webAppName=github-action-demo
