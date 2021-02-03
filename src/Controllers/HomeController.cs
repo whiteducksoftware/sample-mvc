@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
+using System.Net.Http;
 using System.Reflection;
 using System.Runtime.Versioning;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using sample_mvc.Models;
@@ -10,13 +12,15 @@ namespace sample_mvc.Controllers
     public class HomeController : Controller
     {
         private readonly Settings _settings;
+        private readonly IHttpClientFactory _clientFactory;
 
-        public HomeController(IOptions<Settings> settings)
+        public HomeController(IOptions<Settings> settings, IHttpClientFactory clientFactory)
         {
             _settings = settings.Value;
+            _clientFactory = clientFactory;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var framework = Assembly
                 .GetEntryAssembly()?
@@ -29,7 +33,23 @@ namespace sample_mvc.Controllers
                 DotnetCoreVersion = framework
             };
 
-            ViewBag.Title = _settings.Title;
+
+            try
+            {
+                var httpResponse = await _clientFactory.CreateClient()
+               .GetAsync($"{_settings.TextUrl}");
+
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var content = await httpResponse.Content.ReadAsStringAsync();
+
+                    ViewBag.Title = content;
+                }
+            }
+            catch (System.Exception)
+            {
+
+            }
 
             return View();
         }

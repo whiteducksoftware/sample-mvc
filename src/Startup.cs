@@ -21,6 +21,7 @@ namespace sample_mvc
             services.Configure<Settings>(Configuration);
             services.AddControllersWithViews();
             services.AddApplicationInsightsTelemetry();
+            services.AddHttpClient();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
