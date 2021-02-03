@@ -5,5 +5,7 @@
         public string Title { get; set; }
 
         public string TextUrl {get; set;}
+
+        public string TitelNoConnectionToApi { get; set; }
     }
 }

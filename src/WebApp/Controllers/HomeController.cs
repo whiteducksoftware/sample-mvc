@@ -33,7 +33,6 @@ namespace sample_mvc.Controllers
                 DotnetCoreVersion = framework
             };
 
-
             try
             {
                 var httpResponse = await _clientFactory.CreateClient()
@@ -44,11 +43,11 @@ namespace sample_mvc.Controllers
                     var content = await httpResponse.Content.ReadAsStringAsync();
 
                     ViewBag.Title = content;
-                }
+                } 
             }
             catch (System.Exception)
             {
-
+                ViewBag.Title = _settings.TitelNoConnectionToApi;
             }
 
             return View();
