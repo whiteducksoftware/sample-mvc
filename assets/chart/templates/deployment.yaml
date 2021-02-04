@@ -27,10 +27,15 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- if .Values.ingress.enabled }}
+          {{- if .Values.custom.enabled }}
           env:
             - name: Title
               value: {{ .Values.custom.message | quote }}
+          {{- end }}
+          {{- if .Values.api.enabled }}
+          env:
+            - name: TextUrl
+              value: http://{{ include "sample-mvc.fullname" . }}-api-v1:8080/api/fredtext 
           {{- end }}
           ports:
             - name: http
