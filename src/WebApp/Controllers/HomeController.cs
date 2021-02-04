@@ -43,13 +43,13 @@ namespace sample_mvc.Controllers
                     var content = await httpResponse.Content.ReadAsStringAsync();
 
                     ViewBag.Title = content;
-                } 
+                }
             }
             catch (System.Exception)
             {
-                ViewBag.Title = _settings.TitelNoConnectionToApi;
+               ViewBag.Title = _settings.Title;
             }
-
+                
             return View();
         }
 
