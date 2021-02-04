@@ -12,6 +12,16 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# Can be used to demo canary deplyoments
+api:
+  enabled: false
+  message:
+    v1: []
+    v2: []
+  image:
+    repository: whiteduck/sample-api
+    pullPolicy: IfNotPresent
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
