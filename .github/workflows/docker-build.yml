@@ -23,7 +23,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        context: /src/WebApp
+        context: ./src/WebApp
         file: ./Dockerfile
         tags: whiteduck/sample-mvc:latest
 
@@ -31,6 +31,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        context: /src/FredApi
+        context: ./src/FredApi
         file: ./Dockerfile
         tags: whiteduck/sample-api:latest
