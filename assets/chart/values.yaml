@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: whiteduck/sample-mvc
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 imagePullSecrets: []
 nameOverride: ""
@@ -20,7 +20,7 @@ api:
     v2: []
   image:
     repository: whiteduck/sample-api
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
 
 serviceAccount:
   # Specifies whether a service account should be created
