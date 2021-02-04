@@ -24,7 +24,7 @@ jobs:
       with:
         push: true
         context: ./src/WebApp
-        file: ./Dockerfile
+        file: ./src/WebApp/Dockerfile
         tags: whiteduck/sample-mvc:latest
 
     - name: Build and push API
@@ -32,5 +32,5 @@ jobs:
       with:
         push: true
         context: ./src/FredApi
-        file: ./Dockerfile
+        file: ./src/WebApp/Dockerfile
         tags: whiteduck/sample-api:latest
