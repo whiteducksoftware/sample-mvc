@@ -5,11 +5,16 @@ ARG VERSION=6.0-alpine3.14
 
 FROM mcr.microsoft.com/dotnet/sdk:$VERSION AS build-env
 
-ARG LOGO="logo-fred.png"
+ARG VERSION_FOLDER="fred-version"
 
 WORKDIR /app
 ADD . .
-RUN cp /app/assets/"${LOGO}" /app/wwwroot/img/logo.png
+# Test if the given folder exists
+RUN if [ ! -d "/app/Container-Versions/${VERSION_FOLDER}" ]; then exit 1; fi && \
+    # Copy a .png image from the given version folder
+    cp /app/Container-Versions/"${VERSION_FOLDER}"/*.png /app/wwwroot/img/logo.png && \
+    # Copy the app settings from the given version folder
+    cp /app/Container-Versions/"${VERSION_FOLDER}"/appsettings.json /app
 RUN dotnet publish \
   -c Release \
   -o ./output
