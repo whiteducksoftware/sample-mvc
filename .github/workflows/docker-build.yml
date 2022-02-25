@@ -9,7 +9,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@update/new-net-version
+      - uses: actions/checkout@master
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
