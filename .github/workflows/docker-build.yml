@@ -1,4 +1,4 @@
-name: Build & Publish to Registry
+name: Build & Publish to Registry Test
 
 on:
   push:
