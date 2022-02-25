@@ -24,43 +24,57 @@ jobs:
 
       - name: Build and push the fred version of the WebApp
         uses: docker/build-push-action@v2
-        with:
+        with:        
+          env:
+            FredName: "Fred"
           push: true
           context: ./src/WebApp
           file: ./src/WebApp/Dockerfile
           build-args: LOGO=logo-fred.png
           tags: ${{ env.REGISTRY }}/${{ env.ORGANISATION_NAME }}/sample-mvc:fred
 
+
       - name: Build and push the frida version of the WebApp
         uses: docker/build-push-action@v2
-        with:
+        with:        
+          env:
+            FredName: "Frida"
           push: true
           context: ./src/WebApp
           file: ./src/WebApp/Dockerfile
           build-args: LOGO=logo-frida.png
           tags: ${{ env.REGISTRY }}/${{ env.ORGANISATION_NAME }}/sample-mvc:frida
 
+
       - name: Build and push the fred with cap version of the WebApp
         uses: docker/build-push-action@v2
         with:
+          env:
+            FredName: "the Fred with a cap"
           push: true
           context: ./src/WebApp
           file: ./src/WebApp/Dockerfile
           build-args: LOGO=logo-fred-cap.png
           tags: ${{ env.REGISTRY }}/${{ env.ORGANISATION_NAME }}/sample-mvc:fred-cap
 
+
       - name: Build and push the easter fred version of the WebApp
         uses: docker/build-push-action@v2
         with:
+          env:
+            FredName: "the easter Fred"
           push: true
           context: ./src/WebApp
           file: ./src/WebApp/Dockerfile
           build-args: LOGO=logo-fred-easter.png
           tags: ${{ env.REGISTRY }}/${{ env.ORGANISATION_NAME }}/sample-mvc:fred-easter
 
+
       - name: Build and push the pirate fred version of the WebApp
         uses: docker/build-push-action@v2
         with:
+          env:
+            FredName: "the pirate Fred"
           push: true
           context: ./src/WebApp
           file: ./src/WebApp/Dockerfile
@@ -70,6 +84,8 @@ jobs:
       - name: Build and push the xmas fred version of the WebApp
         uses: docker/build-push-action@v2
         with:
+          env:
+            FredName: "the xmas Fred"
           push: true
           context: ./src/WebApp
           file: ./src/WebApp/Dockerfile
