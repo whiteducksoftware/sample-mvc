@@ -9,6 +9,7 @@ ARG LOGO="logo-fred.png"
 
 WORKDIR /app
 ADD . .
+RUN if [ -d "/app/wwwroot/img" ] ; then echo "directory exists"; fi
 RUN cp /app/assets/"${LOGO}" /app/wwwroot/img/logo.png
 RUN dotnet publish \
   -c Release \
