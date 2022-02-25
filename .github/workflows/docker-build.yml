@@ -3,13 +3,13 @@ name: Build & Publish to Registry Test
 on:
   push:
     branches:
-      - update/mew-net-version
+      - update/new-net-version
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@update/mew-net-version
+      - uses: actions/checkout@update/new-net-version
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
