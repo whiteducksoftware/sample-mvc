@@ -24,7 +24,7 @@ jobs:
           push: true
           context: ./src/WebApp
           file: ./src/WebApp/Dockerfile
-          build-args: LOGO="logo-fred.png"
+          build-args: LOGO=logo-fred.png
           tags: whiteduck/sample-mvc:fred
 
       - name: Build and push API
