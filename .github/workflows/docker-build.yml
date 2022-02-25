@@ -1,4 +1,4 @@
-name: Build & Publish to Registry Test
+name: Build & Publish to Registry
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
           context: ./src/WebApp
           file: ./src/WebApp/Dockerfile
           build-args: LOGO=logo-fred.png
-          tags: whiteduck/sample-mvc:fred
+          tags: sample-mvc:fred
 
       - name: Build and push API
         uses: docker/build-push-action@v2
@@ -33,4 +33,4 @@ jobs:
           push: true
           context: ./src/FredApi
           file: ./src/FredApi/Dockerfile
-          tags: whiteduck/sample-api:latest
+          tags: sample-api:latest
