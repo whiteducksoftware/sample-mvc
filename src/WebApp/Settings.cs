@@ -4,6 +4,8 @@
     {
         public string Title { get; set; }
 
-        public string TextUrl {get; set;}
+        public string TextUrl { get; set; }
+
+        public string FredName { get; set; }
     }
 }

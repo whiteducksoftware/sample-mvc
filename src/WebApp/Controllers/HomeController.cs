@@ -43,13 +43,15 @@ namespace sample_mvc.Controllers
                     var content = await httpResponse.Content.ReadAsStringAsync();
 
                     ViewBag.Title = content;
+                    ViewBag.FredName = _settings.FredName;
                 }
             }
             catch (System.Exception)
             {
-               ViewBag.Title = _settings.Title;
+                ViewBag.Title = _settings.Title;
+                ViewBag.FredName = _settings.FredName;
             }
-                
+
             return View();
         }
 
