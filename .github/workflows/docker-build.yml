@@ -3,7 +3,8 @@ name: Build & Publish to Registry
 on:
   push:
     branches:
-      - update/new-net-version
+      - master
+      - 'update/*'
 
 env:
   REGISTRY: ghcr.io
