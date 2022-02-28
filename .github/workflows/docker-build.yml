@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - 'update/*'
+      - 'feature/*'
 
 env:
   REGISTRY: ghcr.io
