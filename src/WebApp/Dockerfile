@@ -17,8 +17,10 @@ ADD . .
 RUN if [ ! -d "/app/Container-Versions/${VERSION_FOLDER}" ]; then exit 1; fi && \
     # Test if the given version folder contains a png image
     if [ -f "/app/Container-Versions/${VERSION_FOLDER}/"*.png ]; then \
+    # Remove the default image
+    rm /app/wwwroot/img/logo.png && \
     # Replace the default logo with the .png image from the given version folder
-    cp /app/Container-Versions/"${VERSION_FOLDER}"/*.png /app/wwwroot/img/logo.png; fi && \
+    mv /app/Container-Versions/"${VERSION_FOLDER}"/*.png /app/wwwroot/img; fi && \
     # Test if the given version folder contains appsettings file
     if [ -f "/app/Container-Versions/${VERSION_FOLDER}/appsettings.json" ]; then \
     # Copy the app settings from the given version folder

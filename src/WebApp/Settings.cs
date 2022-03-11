@@ -6,6 +6,8 @@
 
         public string TextUrl { get; set; }
 
+        public string Image { get; set; }
+
         public string FredName { get; set; }
     }
 }
