@@ -1,6 +1,6 @@
 # Hi! I am Fred
 
-This is a simple ASP .NET Core 3.1 MVC Demo application that you can use to demonstrate e. g. containerization or deployments. The MVC Demo app can be extended with a simple Web API.
+This is a simple ASP .NET Core 6.0 MVC Demo application that you can use to demonstrate e. g. containerization or deployments. The MVC Demo app can be extended with a simple Web API.
 
 ## Usage
 
