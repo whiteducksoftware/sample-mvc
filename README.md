@@ -9,3 +9,16 @@ Just clone this repository, jump into the `src/WebApp` folder and start the appl
 Or run the containerized application using ```docker run -dp 8080:8080 ghcr.io/whiteducksoftware/sample-mvc:fred```
 
 [![Actions Status](https://github.com/whiteducksoftware/sample-mvc/workflows/Publish%20to%20Registry/badge.svg)](https://github.com/whiteducksoftware/sample-mvc/actions)
+
+## Tags
+
+List of available tags for `sample-mvc` image:
+
+- fred
+- frida
+- fred-cap
+- fred-easter
+- fred-pirate
+- fred-xmas
+- fred-kube
+- fred-mvp
