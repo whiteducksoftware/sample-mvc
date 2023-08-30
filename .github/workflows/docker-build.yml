@@ -92,6 +92,26 @@ jobs:
           build-args: VERSION_FOLDER=xmas-fred-version
           tags: ${{ env.REGISTRY }}/${{ env.ORGANISATION_NAME }}/sample-mvc:fred-xmas
 
+      - name: Build and push the Kube fred version of the WebApp
+        uses: docker/build-push-action@v2
+        with:
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          context: ./src/WebApp
+          file: ./src/WebApp/Dockerfile
+          build-args: VERSION_FOLDER=kube-fred-version
+          tags: ${{ env.REGISTRY }}/${{ env.ORGANISATION_NAME }}/sample-mvc:fred-kube
+
+      - name: Build and push the MVP fred version of the WebApp
+        uses: docker/build-push-action@v2
+        with:
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          context: ./src/WebApp
+          file: ./src/WebApp/Dockerfile
+          build-args: VERSION_FOLDER=mvp-fred-version
+          tags: ${{ env.REGISTRY }}/${{ env.ORGANISATION_NAME }}/sample-mvc:fred-mvp
+
       - name: Build and push API
         uses: docker/build-push-action@v2
         with:
