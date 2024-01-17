@@ -1,0 +1,41 @@
+name: Build & Publish Images to Registry
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - main
+      - 'update/*'
+      - 'feature/*'
+    paths:
+       - src/**
+
+env:
+  REGISTRY: ghcr.io
+  ORGANISATION_NAME: whiteducksoftware
+
+jobs:
+  prepare:
+    name: prepare
+    runs-on: ubuntu-latest
+    outputs:
+      REGISTRY: ${{ env.REGISTRY }}
+      ORGANISATION_NAME: ${{ env.ORGANISATION_NAME }}
+    steps:
+      - name: vars
+        run: echo "Exposing ENV vars"
+  api:
+    name: build
+    needs: [prepare]
+    uses: ./.github/workflows/docker-build-api.yaml
+    with:
+      REGISTRY: ${{ needs.prepare.outputs.REGISTRY }}
+      ORGANISATION_NAME: ${{ needs.prepare.outputs.ORGANISATION_NAME }}
+  webapp:
+    name: build
+    needs: [prepare]
+    uses: ./.github/workflows/docker-build-api-webapp.yaml
+    with:
+      REGISTRY: ${{ needs.prepare.outputs.REGISTRY }}
+      ORGANISATION_NAME: ${{ needs.prepare.outputs.ORGANISATION_NAME }}
