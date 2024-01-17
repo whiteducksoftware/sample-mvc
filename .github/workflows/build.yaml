@@ -35,7 +35,7 @@ jobs:
   webapp:
     name: build
     needs: [prepare]
-    uses: ./.github/workflows/docker-build-api-webapp.yaml
+    uses: ./.github/workflows/docker-build-webapp.yaml
     with:
       REGISTRY: ${{ needs.prepare.outputs.REGISTRY }}
       ORGANISATION_NAME: ${{ needs.prepare.outputs.ORGANISATION_NAME }}
