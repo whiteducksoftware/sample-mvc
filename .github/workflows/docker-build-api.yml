@@ -1,0 +1,46 @@
+name: Build & Publish FredApi to Registry
+
+on:
+  workflow_call:
+    inputs:
+      ### Values from CICD Workflow ###
+      REGISTRY:
+        required: true
+        type: string
+        description: 'The Container Registry that should be used.'
+      ORGANISATION_NAME:
+        type: string
+        required: true
+        description: 'The GitHub organisation name that should be used.'
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read 
+      packages: write # needed for publishing the patched image to the GitHub Container Registry
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v3.0.0
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3.0.0
+        with:
+          registry: ${{ inputs.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push API
+        uses: docker/build-push-action@v5.1.0
+        with:
+          builder: ${{ steps.buildx.outputs.name }}
+          platforms: linux/amd64,linux/arm64
+          push: true
+          context: ./src/FredApi
+          file: ./src/FredApi/Dockerfile
+          tags: ${{ inputs.REGISTRY }}/${{ inputs.ORGANISATION_NAME }}/sample-api:latest
